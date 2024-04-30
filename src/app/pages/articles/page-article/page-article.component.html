@@ -1,0 +1,21 @@
+
+    
+
+    <div class="col">
+        <div class="row m-3">
+            <div class="col-md-8 p-0">
+                <h2>Liste des articles</h2>
+            </div>
+            <div class="col-md-4 d-flex justify-content-end">
+              
+                <app-button-action (clickEvent)="nouvelArticle()"></app-button-action>
+            </div>
+        </div>
+        
+        <div class="card row m-3">
+            <app-detail-article></app-detail-article>
+        </div>
+    
+        <router-outlet></router-outlet>
+    </div>
+    
