@@ -7,31 +7,31 @@
             <div class="grid-container">
               <div class="grid-item">
                 <label for="article_code">Code Article:</label><br>
-                <input type="text" id="article_code" name="article_code" required>
+                <input type="text" id="code" name="code" [(ngModel)]="article.code"  required>
               </div>
               <div class="grid-item">
                 <label for="article_designation">Designation</label><br>
-                <input type="text" id="article_designation" name="article_designation" required>
+                <input type="text" id="designation" name="designation"  [(ngModel)]="article.designation"required>
               </div>
               <div class="grid-item">
                 <label for="price_ht">Prix HT:</label><br>
-                <input type="text" id="price_ht" name="price_ht" required>
+                <input type="text" id="prixHT" name="prixHT" [(ngModel)]="article.prixUnitaireHt" required>
               </div>
               <div class="grid-item">
                 <label for="price_ttc">Prix TTC:</label><br>
-                <input type="text" id="price_ttc" name="price_ttc" required>
+                <input type="text" id="prixTTC" name="prixTTC"  [(ngModel)]="article.prixUnitaireTtc"required>
               </div>
               <div class="grid-item">
                 <label for="vat_rate">Taux TVA:</label><br>
-                <input type="text" id="vat_rate" name="vat_rate" required>
+                <input type="text" id="tauxTva" name="tauxTva"  [(ngModel)]="article.tauxTva"required>
               </div>
               <div class="grid-item">
                 <label for="photo">Photo:</label><br>
-                <input type="file" id="photo" name="photo" required>
+                <input type="file" id="photo" name="photo"  required>
               </div>
               <div class="grid-item">
                 <label for="category">Catégorie:</label><br>
-                <select id="category" name="category" required>
+                <select id="category" name="category" [(ngModel)]="article.idCategory" required>
                   <option value="">Selectionner une catégorie</option>
                   <option value="cat1">Category 1</option>
                   <option value="cat2">Category 2</option>
@@ -41,7 +41,7 @@
             </div>
             <div class="grid-container">
               <div class="grid-item button-container"> <!-- Utilisez cette div pour aligner les boutons -->
-                <button type="submit" name="submit" class="button-save">Enregistrer</button>
+                <button type="submit" name="submit" class="button-save" (click)="enregistrerArticle()">Enregistrer</button>
                 <button type="reset" name="reset" class="button-cancel" (click)="cancel()">Annuler</button>
               </div>
             </div>

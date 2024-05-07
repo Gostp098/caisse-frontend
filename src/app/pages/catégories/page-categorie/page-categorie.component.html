@@ -1,20 +1,46 @@
-
-    
-
-    <div class="col">
-        <div class="row m-3">
-            <div class="col-md-8 p-0">
-                <h2>Liste des catégories</h2>
-            </div>
-            <div class="col-md-4 d-flex justify-content-end">
-                <app-button-action (clickEvent)="nouvelCategorie()"></app-button-action>
-            </div>
+<div class="col">
+  <div class="row m-3">
+      <div class="col-md-8 p-0">
+          <h2>Liste des catégories</h2>
+      </div>
+      <div class="col-md-4 d-flex justify-content-end">
+          <app-button-action (clickEvent)="nouvelCategorie()"></app-button-action>
+      </div>
+  </div>
+  
+  <div class="card row m-3">
+      <div class="table-responsive">
+          <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Code categorie</th>
+                <th scope="col">Designation</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor ="let cat of listCategories" >
+                <th scope="row">{{cat.id}}</th>
+                <td>{{cat.code}}</td>
+                <td>{{cat.designation}}</td>
+                <td>
+                  <a routerLink="/modifierCategorie/{{cat.id}}">
+                  <button type="button" class="btn btn-link">
+                    <i class="fas fa-pencil-alt"></i>
+                  </button></a>
+                  <button type="button" class="btn btn-link" >
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         
-        <div class="card row m-3">
-            <app-detail-categorie></app-detail-categorie>
-        </div>
-    
-        <router-outlet></router-outlet>
-    </div>
-    
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
+
+

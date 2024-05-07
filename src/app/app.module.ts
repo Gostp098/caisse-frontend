@@ -13,9 +13,10 @@ import { ButtonActionComponent } from './composants/button-action/button-action.
 import { AjouterArticleComponent } from './pages/articles/ajouter-article/ajouter-article.component';
 import { PageCategorieComponent } from './pages/catégories/page-categorie/page-categorie.component';
 import { NouvelleCategorieComponent } from './pages/catégories/nouvelle-categorie/nouvelle-categorie.component';
-import { DetailCategorieComponent } from './composants/detail-categorie/detail-categorie.component';
-
-
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ModifierCategorieComponent } from './pages/catégories/modifier-categorie/modifier-categorie.component';
+import { ListClientComponent } from './pages/clients/list-client/list-client.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,11 +31,16 @@ import { DetailCategorieComponent } from './composants/detail-categorie/detail-c
     AjouterArticleComponent,
     PageCategorieComponent,
     NouvelleCategorieComponent,
-    DetailCategorieComponent
+    ModifierCategorieComponent,
+    ListClientComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+   
   ],
   providers: [
     

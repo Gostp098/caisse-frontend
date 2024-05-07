@@ -7,6 +7,8 @@ import { PageArticleComponent } from './pages/articles/page-article/page-article
 import { AjouterArticleComponent } from './pages/articles/ajouter-article/ajouter-article.component';
 import { NouvelleCategorieComponent } from './pages/catégories/nouvelle-categorie/nouvelle-categorie.component';
 import { PageCategorieComponent } from './pages/catégories/page-categorie/page-categorie.component';
+import { ModifierCategorieComponent } from './pages/catégories/modifier-categorie/modifier-categorie.component';
+import { ListClientComponent } from './pages/clients/list-client/list-client.component';
 
 
 const routes: Routes = [
@@ -38,7 +40,15 @@ children:[
     {
       path:'nouvelleCategorie',
       component:NouvelleCategorieComponent
-    }
+    },
+    {
+      path:'modifierCategorie/:id',
+      component:ModifierCategorieComponent
+    },
+    {
+      path:'listClient',
+      component:ListClientComponent
+    },
   ]
 
   },

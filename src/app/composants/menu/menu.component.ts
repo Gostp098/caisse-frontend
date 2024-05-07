@@ -78,7 +78,7 @@ export class MenuComponent implements OnInit {
           id: '43',
           titre: 'Clients',
           icon: 'fas fa-users-cog',
-          url: 'clients'
+          url: 'listClient'
         }
       ]
     }
