@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ArticleService } from '../../../services/article/article.service';
 import { Article } from '../article';
+import { Category } from '../../catégories/category';
+import { CategoryService } from '../../../services/category/category.service';
 
 @Component({
   selector: 'app-ajouter-article',
@@ -16,23 +18,43 @@ export class AjouterArticleComponent implements OnInit {
     prixUnitaireHt: '',
     prixUnitaireTtc: '',
     tauxTva: '',
-    code: '',
+    codeArticle: '',
     designation: '',
   };
+  
+  Category: any[] = []; 
+  
+  
 
   constructor(
     private router: Router,
-    private articleService: ArticleService
+    private articleService: ArticleService,
+    private categoryService:CategoryService
+    
+
   ) {}
 
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('on init...');
+    this.categoryService. getCategory().subscribe(
+      (result) => {
+        this.Category = result; 
+      }
+      
+    );
+  
+   }
 
+
+
+
+      
   
   cancel(): void {
     this.router.navigate(['/articles']); 
   }
-
+ 
 
   enregistrerArticle() {
     this.articleService.enregistrerArticle(this.article).subscribe(

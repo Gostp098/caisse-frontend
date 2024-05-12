@@ -9,6 +9,8 @@ import { NouvelleCategorieComponent } from './pages/catégories/nouvelle-categor
 import { PageCategorieComponent } from './pages/catégories/page-categorie/page-categorie.component';
 import { ModifierCategorieComponent } from './pages/catégories/modifier-categorie/modifier-categorie.component';
 import { ListClientComponent } from './pages/clients/list-client/list-client.component';
+import { PageEntrepriseComponent } from './pages/entreprise/page-entreprise/page-entreprise.component';
+import { AjouterEntrepriseComponent } from './pages/entreprise/ajouter-entreprise/ajouter-entreprise.component';
 
 
 const routes: Routes = [
@@ -49,6 +51,15 @@ children:[
       path:'listClient',
       component:ListClientComponent
     },
+    {
+      path:'entreprise',
+      component:PageEntrepriseComponent
+    },
+    {
+      path:'ajouterEntreprise',
+      component:AjouterEntrepriseComponent
+    },
+
   ]
 
   },

@@ -37,7 +37,7 @@
                     <td>{{article.category.designation }}</td>
                     <td>
                     <button type="button" class="btn btn-link">  <i class="fas fa-pencil-alt"></i>&nbsp;</button>
-                    <button type="button" class="btn btn-link"><i class="fas fa-trash-alt"></i>&nbsp;</button>
+                    <button type="button" class="btn btn-link"><i class="fas fa-trash-alt" data-bs-toggle="modal" data-bs-target="#modalDeleteArticle" (click)="selectArticlePourSupprimer(article.id)"></i>&nbsp;</button>
                 </td>
                    
                   </tr>
@@ -51,3 +51,23 @@
         <router-outlet></router-outlet>
     </div>
     
+
+    <!-- Modal -->
+<div class="modal fade" id="modalDeleteArticle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Confirmation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Êtes-vous sûr de vouloir supprimer cette Article?
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="annulerSuppressionArticle()"><i class="fas fa-ban"></i>&nbsp;Annuler</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"  (click)="confirmerEtSupprimerArticle()"><i class="fas fa-trash-alt"></i>&nbsp;Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>

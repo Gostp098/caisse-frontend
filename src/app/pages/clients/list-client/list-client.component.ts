@@ -12,6 +12,8 @@ import { OnInit } from '@angular/core';
 })
 export class ListClientComponent implements OnInit{
   listClients: any[] = []; // Stocke les clients récupérées depuis le serveur
+  selectedClientIdToDelete ?= -1;
+ 
 
 
   constructor(
@@ -20,12 +22,35 @@ export class ListClientComponent implements OnInit{
   ) {}
 
   ngOnInit() {
+    this.findAllClient();
+  }
+
+  findAllClient(){
     console.log('on init...');
     this.clientService.getClient().subscribe(
       (result) => {
         this.listClients = result; 
       }
-      
-    );
+      );
+     }
+
+confirmerEtSupprimerClient(): void {
+  if (this.selectedClientIdToDelete !== -1) {
+    this.clientService.deleteClient(this.selectedClientIdToDelete)
+    .subscribe(res => {
+      this.findAllClient();
+    });
   }
+}
+
+
+annulerSuppressionClient(): void {
+  this.selectedClientIdToDelete = -1;
+}
+
+selectClientPourSupprimer(id?: number): void {
+  this.selectedClientIdToDelete = id;
+}
+
+
 }

@@ -1,50 +1,51 @@
 <div class="col-md-22">
-    <div class="col-md-12">
-        <h3>Nouvel article</h3>
-    </div>
-    <div class="col-md-12">
-        <form>
-            <div class="grid-container">
-              <div class="grid-item">
-                <label for="article_code">Code Article:</label><br>
-                <input type="text" id="code" name="code" [(ngModel)]="article.code"  required>
-              </div>
-              <div class="grid-item">
-                <label for="article_designation">Designation</label><br>
-                <input type="text" id="designation" name="designation"  [(ngModel)]="article.designation"required>
-              </div>
-              <div class="grid-item">
-                <label for="price_ht">Prix HT:</label><br>
-                <input type="text" id="prixHT" name="prixHT" [(ngModel)]="article.prixUnitaireHt" required>
-              </div>
-              <div class="grid-item">
-                <label for="price_ttc">Prix TTC:</label><br>
-                <input type="text" id="prixTTC" name="prixTTC"  [(ngModel)]="article.prixUnitaireTtc"required>
-              </div>
-              <div class="grid-item">
-                <label for="vat_rate">Taux TVA:</label><br>
-                <input type="text" id="tauxTva" name="tauxTva"  [(ngModel)]="article.tauxTva"required>
-              </div>
-              <div class="grid-item">
-                <label for="photo">Photo:</label><br>
-                <input type="file" id="photo" name="photo"  required>
-              </div>
-              <div class="grid-item">
-                <label for="category">Catégorie:</label><br>
-                <select id="category" name="category" [(ngModel)]="article.idCategory" required>
-                  <option value="">Selectionner une catégorie</option>
-                  <option value="cat1">Category 1</option>
-                  <option value="cat2">Category 2</option>
-                  <option value="cat3">Category 3</option>
-                </select>
-              </div>
+  <div class="col-md-12">
+      <h3>Nouvel article</h3>
+  </div>
+  <div class="col-md-12">
+      <form (ngSubmit)="enregistrerArticle()" novalidate>
+          <div class="grid-container">
+            <div class="grid-item">
+              <label for="code">Code Article:</label><br>
+              <input type="text" id="code" name="code" [(ngModel)]="article.codeArticle" required>
             </div>
-            <div class="grid-container">
-              <div class="grid-item button-container"> <!-- Utilisez cette div pour aligner les boutons -->
-                <button type="submit" name="submit" class="button-save" (click)="enregistrerArticle()">Enregistrer</button>
-                <button type="reset" name="reset" class="button-cancel" (click)="cancel()">Annuler</button>
-              </div>
+            <div class="grid-item">
+              <label for="designation">Designation</label><br>
+              <input type="text" id="designation" name="designation" [(ngModel)]="article.designation" required>
             </div>
-          </form>
-    </div>
+            <div class="grid-item">
+              <label for="prixHT">Prix HT:</label><br>
+              <input type="text" id="prixHT" name="prixHT" [(ngModel)]="article.prixUnitaireHt" required>
+            </div>
+            <div class="grid-item">
+              <label for="prixUnitaireTtc">Prix TTC:</label><br>
+              <input type="text" id="prixUnitaireTtc" name="prixUnitaireTtc" [(ngModel)]="article.prixUnitaireTtc" required>
+            </div>
+            <div class="grid-item">
+              <label for="tauxTva">Taux TVA:</label><br>
+              <input type="text" id="tauxTva" name="tauxTva" [(ngModel)]="article.tauxTva" required>
+            </div>
+            <div class="grid-item">
+              <label for="photo">Photo:</label><br>
+              <input type="file" id="photo" name="photo" [(ngModel)]="article.photo" required>
+            </div>
+            <div class="grid-item">
+              <label for="category">Catégorie:</label><br>
+              <select id="category" name="category" [(ngModel)]="article.idCategory" required>
+                <option *ngFor="let cat of Category" [value]="cat.id">
+                  {{ cat.designation }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="grid-container">
+            <div class="grid-item button-container">
+              <button type="submit" class="button-save">Enregistrer</button>
+              <button type="reset" class="button-cancel" (click)="cancel()">Annuler</button>
+            </div>
+          </div>
+      </form>
+  </div>
 </div>
+
+

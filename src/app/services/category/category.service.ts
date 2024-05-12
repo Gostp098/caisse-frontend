@@ -14,6 +14,7 @@ export class CategoryService {
   readonly ENDPOINT_postCategory="/Category/Save"
   readonly ENDPOINT_getByIdCategory="/Category/categories/{idCategory}"
   readonly ENDPOINT_putCategory="/Category/put/{idCategory}"
+  readonly ENDPOINT_deleteCategory="/Category/deleteCat"
   
 
   constructor(private httpClient: HttpClient) {}
@@ -34,4 +35,10 @@ export class CategoryService {
   modifierCategory(id: number, updateCategory: any): Observable<any> {
     return this.httpClient.put(`${this.API_URL+this.ENDPOINT_putCategory}/${id}`, updateCategory);
   }
+
+  deleteCategory(id ?: number): Observable<any> {
+    return this.httpClient.delete(`${this.API_URL+this.ENDPOINT_deleteCategory}/${id}`);
+  }
+
+ 
 }

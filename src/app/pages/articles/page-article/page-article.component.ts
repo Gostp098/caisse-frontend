@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class PageArticleComponent implements OnInit{
   listArticles: any[] = []; // Stocke les articles récupérées depuis le serveur
+  selectedArticleIdToDelete? = -1;
 
   constructor ( 
     private router :Router,
@@ -19,18 +20,44 @@ export class PageArticleComponent implements OnInit{
   ) {}
 
 
-  ngOnInit(): void {
-    console.log('on init...');
-    this.articleService.getArticle().subscribe(
-      (result) => {
-        this.listArticles = result; 
-      }
-      
-    );
+  ngOnInit(){
+    this.findAllArticle();
     }
+
+  findAllArticle(){
+      console.log('on init...');
+      this.articleService.getArticle().subscribe(
+        (result) => {
+          this.listArticles = result; 
+        }
+        
+      );
+    }
+
 
 
   nouvelArticle():void{
     this.router.navigate(['ajouterArticle']);
   }
+
+ confirmerEtSupprimerArticle(): void {
+  if (this.selectedArticleIdToDelete !== -1) {
+    this.articleService.deleteArticle(this.selectedArticleIdToDelete)
+    .subscribe(res => {
+      this.findAllArticle();
+    });
+  }
+}
+
+
+
+ annulerSuppressionArticle(): void {
+    this.selectedArticleIdToDelete = -1;
+  }
+
+ selectArticlePourSupprimer(id?: number): void {
+    this.selectedArticleIdToDelete = id;
+  }
+
+
 }

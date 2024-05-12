@@ -17,6 +17,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ModifierCategorieComponent } from './pages/catégories/modifier-categorie/modifier-categorie.component';
 import { ListClientComponent } from './pages/clients/list-client/list-client.component';
+import { PageEntrepriseComponent } from './pages/entreprise/page-entreprise/page-entreprise.component';
+import { AjouterEntrepriseComponent } from './pages/entreprise/ajouter-entreprise/ajouter-entreprise.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,13 +36,16 @@ import { ListClientComponent } from './pages/clients/list-client/list-client.com
     NouvelleCategorieComponent,
     ModifierCategorieComponent,
     ListClientComponent,
-    
+    PageEntrepriseComponent,
+    AjouterEntrepriseComponent,
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    
    
   ],
   providers: [
